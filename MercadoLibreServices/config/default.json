@@ -1,0 +1,9 @@
+{
+    "Server": {
+        "port":3000
+    },
+    "MercadoLibreAPI": {
+        "uri":"https://api.mercadolibre.com/sites/MLA/",
+        "endpointSearch":"search"
+    }
+  }
