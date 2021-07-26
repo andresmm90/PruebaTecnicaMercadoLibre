@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.scss';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
+import Header from './components/header';
+import Details from './components/details';
+import Results from './components/results';
+import NotFound from './components/notFound';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Header/> 
+    <Router>
+      <Switch>
+        <Route exact path="/" />
+        <Route exact path="/items" component={Results}/>
+        <Route exact path="/items/:id" component={Details}/>    
+        <Route exact component={NotFound}/>  
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
