@@ -10,17 +10,15 @@ import Results from './components/results';
 import NotFound from './components/notFound';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Header/> 
     <Router>
+      <Header/> 
       <Switch>
         <Route exact path="/" />
         <Route exact path="/items" component={Results}/>
         <Route exact path="/items/:id" component={Details}/>    
         <Route exact component={NotFound}/>  
       </Switch>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById('root')
 );
 
