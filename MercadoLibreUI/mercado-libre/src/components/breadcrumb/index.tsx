@@ -1,9 +1,14 @@
-import { Col } from "reactstrap";
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
+import IBreadcrump from "./model/Breadcrump";
 
-function Breadcrumb() { 
-    return  <Col md={{size:10,offset:1}}><p>Nivel 1</p></Col>
+function Breadcrumbs(items:Array<IBreadcrump>) { 
+    return <div>
+            <Breadcrumb tag="nav" listTag="div">
+                {items.map(x=><BreadcrumbItem tag={x.active?"span":"a"} active={x.active} href={!x.active?x.href:null}>{x.text}</BreadcrumbItem>)}
+            </Breadcrumb>
+        </div>
 }
 
   
-export default Breadcrumb;
+export default Breadcrumbs;
   

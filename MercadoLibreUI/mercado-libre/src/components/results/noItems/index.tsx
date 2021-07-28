@@ -2,7 +2,7 @@ import './index.scss';
 import lup from "./assets/ic_Search.png";
 function NotItems(){
     return <div className="container-no-item">
-            <div className="image"><img src={lup}/></div>
+            <div className="image"><img src={lup} alt="search"/></div>
             <div className="text">
                 <h3>No hay publicaciones que coincidan con tu búsqueda.</h3>
                 <ul>

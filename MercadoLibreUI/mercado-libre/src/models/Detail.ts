@@ -1,7 +1,7 @@
-import Author from "./Author";
-import Product from "./Product";
+import IAuthor from "./Author";
+import IProduct from "./Product";
 
-export default interface Results {
-    author:Author;
-    item:Product;
+export default interface IDetail{
+    author:IAuthor;
+    item:IProduct;
 }

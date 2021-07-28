@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.scss';
@@ -8,13 +7,10 @@ import Header from './components/header';
 import Details from './components/details';
 import Results from './components/results';
 import NotFound from './components/notFound';
-import { Col, Container, Row } from 'reactstrap';
-import Breadcrumb from './components/breadcrumb';
 
 ReactDOM.render(
     <Router>
       <Header/>
-      <Breadcrumb/>
       <main>
       <Switch>
         <Route exact path="/" />

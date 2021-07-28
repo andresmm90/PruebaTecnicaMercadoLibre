@@ -1,6 +1,5 @@
 import './index.scss';
 import logo from './assets/Logo_ML.png';
-import lupIcon from './assets/ic_Search.png';
 import { Input, Row,Col } from 'reactstrap';
 import {  Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';

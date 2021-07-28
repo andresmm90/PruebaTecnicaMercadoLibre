@@ -1,5 +1,5 @@
 
-export default interface Author {
+export default interface IAuthor {
     name:string;
     lastname:string;
 }

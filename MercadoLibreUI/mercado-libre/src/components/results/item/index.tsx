@@ -8,11 +8,11 @@ function ItemResult(product:Product) {
     return <div key={`produc-${id}`} className="container-results-item">
       <div className="image-item">
         <Link to={`/items/${id}`}>
-          <img src={picture} />
+          <img src={picture} alt={title}/>
         </Link>
       </div>
       <div className="info-item">
-        <div className="price">{price.amount}{free_shipping&&<span><img src={shippingIcon} /></span>}</div>
+        <div className="price">{price.amount}{free_shipping&&<span><img src={shippingIcon} alt="free-shipping"/></span>}</div>
         <div className="title"><Link to={`/items/${id}`}>{title}</Link></div>  
         <div className="condition">{condition}</div>        
       </div>        

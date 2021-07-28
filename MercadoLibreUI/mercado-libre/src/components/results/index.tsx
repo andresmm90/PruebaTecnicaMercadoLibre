@@ -1,10 +1,11 @@
 import './index.scss';
 import queryString from 'query-string';
 import { useLocation } from 'react-router';
-import { Col } from 'reactstrap';
+import {  Col } from 'reactstrap';
 import { useFetchResults } from '../../hooks/useFetchResults';
 import ItemResult from './item';
 import NotItems from './noItems';
+import Breadcrumbs from '../breadcrumb';
 
 function Results() {  
   const location = useLocation();
@@ -14,6 +15,7 @@ function Results() {
 
   return (
       <Col md={{size:10,offset:1}}>
+        {Breadcrumbs([{text:`Inicio`,active:false,href:`/`}])}
         <div className="container-results">
           {
             loading?<div>Cargando...</div>:items&&items.length?items.map(product=> ItemResult(product)):<NotItems/>            

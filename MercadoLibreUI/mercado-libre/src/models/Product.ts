@@ -1,9 +1,9 @@
-import Price from "./Price";
+import IPrice from "./Price";
 
-export default interface Product {
+export default interface IProduct {
     id:string;
     title:string;
-    price:Price;
+    price:IPrice;
     picture:string;
     condition:string;
     free_shipping:boolean;
