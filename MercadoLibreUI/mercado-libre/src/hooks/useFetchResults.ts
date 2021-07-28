@@ -4,11 +4,16 @@ import ProductsUtils from "../utils/ProductsUtils";
 
 export const useFetchResults=(query:string)=>{
     const [results, setResults] = useState<Results>({author:{lastname:"",name:""},items:[],categories:[]});
-    useEffect( ()=>{              
+    const [loading, setLoading] = useState(false);
+    useEffect( ()=>{   
+        setLoading(true);           
         ProductsUtils.getResults(query).then(response=>{
             setResults(response);
+            setLoading(false);
+        }).catch(err=>{            
+            setLoading(false);
         });
     },[query]);
 
-    return results;
+    return {results,loading};
 };

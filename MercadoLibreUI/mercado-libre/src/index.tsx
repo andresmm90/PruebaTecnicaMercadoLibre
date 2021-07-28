@@ -8,16 +8,21 @@ import Header from './components/header';
 import Details from './components/details';
 import Results from './components/results';
 import NotFound from './components/notFound';
+import { Col, Container, Row } from 'reactstrap';
+import Breadcrumb from './components/breadcrumb';
 
 ReactDOM.render(
     <Router>
-      <Header/> 
+      <Header/>
+      <Breadcrumb/>
+      <main>
       <Switch>
         <Route exact path="/" />
         <Route exact path="/items" component={Results}/>
         <Route exact path="/items/:id" component={Details}/>    
         <Route exact component={NotFound}/>  
       </Switch>
+      </main>
     </Router>,
   document.getElementById('root')
 );

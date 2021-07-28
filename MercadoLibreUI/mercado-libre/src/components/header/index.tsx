@@ -1,8 +1,8 @@
 import './index.scss';
 import logo from './assets/Logo_ML.png';
 import lupIcon from './assets/ic_Search.png';
-import { Input, Container,Row,Col } from 'reactstrap';
-import {  useHistory } from 'react-router-dom';
+import { Input, Row,Col } from 'reactstrap';
+import {  Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 
 function Header() {
@@ -20,18 +20,15 @@ function Header() {
      }
 
     return (
-        <header className="nav-header-app">   
-          <div className="container-header">
-            <Container>
+        <header className="nav-header-app">  
+         <Col md={{size:10,offset:1}}>            
               <Row>
-                <Col md="1"><img src={logo} className="header-logo" alt="logo" /></Col>
-                <Col md="10">
+                <Col md="1"> <Link to={`/`}><img src={logo} className="header-logo" alt="logo" /></Link></Col>
+                <Col md="11">
                   <Input type="text" name="search" placeholder="Nunca dejes de buscar" onChange={handleChange} onKeyPress={handleSearch} />
-                </Col>
-                <Col md="1"></Col>
-              </Row>
-            </Container>
-          </div>              
+                </Col>                
+              </Row> 
+          </Col>             
         </header>    
     );
   }
