@@ -5,18 +5,18 @@ import shippingIcon from './assets/ic_shipping.png';
 
 function ItemResult(product:Product) {   
     const {id,title,picture,price,condition,free_shipping}=product;
-    return <div key={`produc-${id}`} className="container-results-item">
-      <div className="image-item">
+    return <article key={`produc-${id}`} className="container-results__item">
+      <div className="container-results__item-photo">
         <Link to={`/items/${id}`}>
           <img src={picture} alt={title}/>
         </Link>
       </div>
-      <div className="info-item">
-        <div className="price">{price.amount}{free_shipping&&<span><img src={shippingIcon} alt="free-shipping"/></span>}</div>
-        <div className="title"><Link to={`/items/${id}`}>{title}</Link></div>  
-        <div className="condition">{condition}</div>        
+      <div className="container-results__item-content">
+        <div className="container-results__item-content-price">$ {price.amount}{free_shipping&&<img src={shippingIcon} alt="free-shipping"/>}</div>
+        <Link className="container-results__item-content-title" to={`/items/${id}`}>{title}</Link>  
+        <div className="container-results__item-condition">{condition}</div>        
       </div>        
-      </div>;
+      </article>;
   }
   
     

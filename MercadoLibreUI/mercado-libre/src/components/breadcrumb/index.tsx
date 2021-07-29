@@ -1,5 +1,6 @@
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import IBreadcrump from "./model/Breadcrump";
+import "./index.scss";
 
 function Breadcrumbs(items:Array<IBreadcrump>) { 
     return <div>

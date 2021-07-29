@@ -3,41 +3,49 @@ import { useParams } from 'react-router';
 import { Button, Col } from 'reactstrap';
 import { useFetchDetails } from '../../hooks/useFetchDetails';
 import Breadcrumbs from '../breadcrumb';
+import {Helmet} from 'react-helmet';
 
-function Detail() {  
-
+function Detail() {    
   const {id}= useParams<{ id: string }>();
   const {detail,loading}=useFetchDetails(id);
-  const {title,description,picture,price,condition,sold_quantity}=detail.item;
-  return (
+  const {title,description,picture,price,condition,sold_quantity,category_id}=detail.item;
+ return (
     <Col md={{size:10,offset:1}}>
-      {Breadcrumbs([{text:`Inicio`,active:false,href:`/`},{text:`Resultados`,active:false,href:`/items`},{text:`Categoría`,active:true,href:`/`}])}
-      <div className="container-detail">
+      {Breadcrumbs([{text:`Inicio`,active:false,href:`/`},{text:`Resultados`,active:false,href:`/items`},{text:`${category_id}`,active:true,href:``}])}
+      <article className="container-detail">
         {
         loading?
+        <>
+          <Helmet>
+            <title>Cargando...</title>
+            <meta name="description" content="cargando"></meta>
+          </Helmet>
           <div>Cargando...</div>
+        </>
         :
         <div>
-          <div>
-            <div className="picture">
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content="Detalle búsqueda"></meta>
+          </Helmet>
+          <div className="container-detail__product">
+            <div className="container-detail__product-picture">
               <img src={picture} alt={title}></img>
             </div>
-            <div className="feature">
-              <p>{condition}<span> - </span>{`${sold_quantity} Vendidos`}</p>
-              <p>{title}</p>
-              <p><span>$</span>{price.amount}</p>
-              <div className="Button">
-                <Button>Comprar</Button>
-              </div>     
+            <div className="container-detail__product-feature">
+              <div className="container-detail__product-condition">{condition}<span> - </span>{`${sold_quantity} Vendidos`}</div>
+              <h1 className="container-detail__product-title">{title}</h1>
+              <div className="container-detail__product-price">$ {price.amount}</div>              
+              <Button className="container-detail__product-button">Comprar</Button>                   
             </div>                            
           </div>
-          <div className="description">
-            <h2>Descripción del producto</h2>
-            <p>{description}</p>
+          <div className="container-detail__description">
+            <h2 className="container-detail__description-title">Descripción del producto</h2>
+            <p  className="container-detail__description-value">{description}</p>
           </div>
         </div>
         }
-      </div>
+      </article>
     </Col>
   );
 }

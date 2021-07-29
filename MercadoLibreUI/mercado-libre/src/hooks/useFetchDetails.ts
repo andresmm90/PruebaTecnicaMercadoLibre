@@ -9,7 +9,9 @@ export const useFetchDetails=(id:string)=>{
     useEffect( ()=>{    
         setLoading(true);           
         ProductsUtils.getDetail(id).then(response=>{
-            setDetail(response);
+            if(response){
+                setDetail(response);
+            }            
             setLoading(false);
         }).catch(err=>{            
             setLoading(false);

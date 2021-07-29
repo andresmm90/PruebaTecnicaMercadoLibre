@@ -1,0 +1,12 @@
+@import '../../assets/sass/variables';
+
+.breadcrumb{
+    margin-bottom: 0;
+    padding: 16px 0;
+    &-item{
+        color: $c-black;
+        text-decoration: none;
+        opacity: .7;
+        font-size: 14px;
+    }
+}

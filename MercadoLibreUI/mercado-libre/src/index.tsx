@@ -7,13 +7,14 @@ import Header from './components/header';
 import Details from './components/details';
 import Results from './components/results';
 import NotFound from './components/notFound';
+import Home from './components/home';
 
 ReactDOM.render(
     <Router>
       <Header/>
       <main>
       <Switch>
-        <Route exact path="/" />
+        <Route exact path="/" component={Home}/>
         <Route exact path="/items" component={Results}/>
         <Route exact path="/items/:id" component={Details}/>    
         <Route exact component={NotFound}/>  

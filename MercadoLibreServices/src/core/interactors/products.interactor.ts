@@ -25,7 +25,7 @@ export const getDetails=(resultsRepository:ProductsRepository)=>async (productId
 const buildDetailEntity=(detail:any)=>{
     let response:Detail=null;
     if(detail&&detail[0]&&detail[0].data&&detail[1]&&detail[1].data){
-        const {id,title,pictures,condition,currency_id,price,shipping,sold_quantity}=detail[0].data;
+        const {id,title,pictures,condition,currency_id,price,shipping,sold_quantity,category_id}=detail[0].data;
         const {plain_text}=detail[1].data;
         response={
             author:buildAuthor(),
@@ -41,7 +41,8 @@ const buildDetailEntity=(detail:any)=>{
                 },
                 free_shipping:shipping?shipping.free_shipping:null,
                 sold_quantity,
-                description:plain_text
+                description:plain_text,
+                category_id
             }
         };
     }

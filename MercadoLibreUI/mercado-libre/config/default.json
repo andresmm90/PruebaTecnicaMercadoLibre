@@ -1,0 +1,6 @@
+{
+    "MercadoLibreAPI": {
+        "uri":"http://localhost:3001/api",
+        "endpoint":"items"
+    }
+  }
